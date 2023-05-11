@@ -58,10 +58,11 @@ function playRound(playerSelection)
 
 function Game()
 {
+    playerPoints = 0;
+    computerPoints = 0;
     while (playerPoints < 3 && computerPoints < 3)
     {
-        playerPoints = 0;
-        computerPoints = 0;
+        
         message = 'e';
 
         while (message[0] === 'e')
@@ -97,6 +98,8 @@ playing = true;
 while (playing)
 {
     Game();
+
+    again = "";
 
     while (again != 'y' || again != 'n')
     {
