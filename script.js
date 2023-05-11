@@ -82,6 +82,14 @@ function Game()
         }
     }
     
+    if (playerPoints < 3)
+    {
+        console.log("You lost better luck next time!");
+    }
+    else 
+    {
+        console.log("You won well done!");
+    }
 }
 
 playing = true;
