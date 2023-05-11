@@ -56,6 +56,34 @@ function playRound(playerSelection)
     }
 }
 
+function Game()
+{
+    while (playerPoints < 3 && computerPoints < 3)
+    {
+        playerPoints = 0;
+        computerPoints = 0;
+        message = 'e';
+
+        while (message[0] === 'e')
+        {
+            playerSelection = prompt("Pick rock, paper or scissors: ");
+            message = playRound(playerSelection);
+        }
+
+        console.log(message);
+
+        if (message.includes("win"))
+        {
+            playerPoints++;    
+        }
+        else if (message.includes("lose"))
+        {
+            computerPoints++;
+        }
+    }
+    
+}
+
 playing = true;
 
 while (playing)
