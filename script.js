@@ -56,4 +56,24 @@ function playRound(playerSelection)
     }
 }
 
-console.log(playRound("roc"));
+playing = true;
+
+while (playing)
+{
+    Game();
+
+    while (again != 'y' || again != 'n')
+    {
+        again = prompt("Play again? (y/n): ");
+        again = again.toLowerCase();
+        if (again === 'y') 
+        {
+            break;
+        }
+        else if (again === 'n')
+        {
+            playing = false;
+            break;
+        }
+    } 
+}
