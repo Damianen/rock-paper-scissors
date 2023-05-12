@@ -15,7 +15,7 @@ function draw(draw)
 
 function playRound(playerSelection)
 {
-    computerSelection = Math.floor(Math.random() * 3) + 1;
+    let computerSelection = Math.floor(Math.random() * 3) + 1;
     playerSelection = playerSelection.toLowerCase();
 
     //for the computer
@@ -58,16 +58,16 @@ function playRound(playerSelection)
 
 function Game()
 {
-    playerPoints = 0;
-    computerPoints = 0;
+    let playerPoints = 0;
+    let computerPoints = 0;
     while (playerPoints < 3 && computerPoints < 3)
     {
         
-        message = 'e';
+        let message = 'e';
 
         while (message[0] === 'e')
         {
-            playerSelection = prompt("Pick rock, paper or scissors: ");
+            let playerSelection = prompt("Pick rock, paper or scissors: ");
             message = playRound(playerSelection);
         }
 
