@@ -1,10 +1,12 @@
 function computerWin(winner, loser)
 {
+    computerPoints++;
     return `You lose! ${winner} beats ${loser}!`;
 }
 
 function playerWin(winner, loser)
 {
+    playerPoints++;
     return `You win! ${winner} beats ${loser}!`;
 }
 
@@ -27,27 +29,27 @@ function playRound(playerSelection)
     {
         switch (computerSelection % 3)
         {
-            case 1: return computerWin("paper", playerSelection);
-            case 2: return draw(playerSelection);
-            case 0: return playerWin(playerSelection, "scissors");
+            case 1: text.textContent = computerWin("paper", playerSelection);
+            case 2: text.textContent = draw(playerSelection);
+            case 0: text.textContent = playerWin(playerSelection, "scissors");
         }
     }
     else if (playerSelection === "paper")
     {
         switch (computerSelection % 3)
         {
-            case 0: return computerWin("scissors", playerSelection);
-            case 1: return draw(playerSelection);
-            case 2: return playerWin(playerSelection, "rock");
+            case 0: text.textContent = computerWin("scissors", playerSelection);
+            case 1: text.textContent = draw(playerSelection);
+            case 2: text.textContent = playerWin(playerSelection, "rock");
         }
     }
     else if (playerSelection === "scissors")
     {
         switch (computerSelection % 3)
         {
-            case 2: return computerWin("rock", playerSelection);
-            case 0: return draw(playerSelection);
-            case 1: return playerWin(playerSelection, "paper");
+            case 2: text.textContent = computerWin("rock", playerSelection);
+            case 0: text.textContent = draw(playerSelection);
+            case 1: text.textContent = playerWin(playerSelection, "paper");
         }
     }
     else
@@ -56,63 +58,17 @@ function playRound(playerSelection)
     }
 }
 
-function Game()
+let playerPoints = 0;
+let computerPoints = 0;
+
+let rock = document.querySelector(".rock");
+let paper = document.querySelector(".paper");
+let scissors = document.querySelector(".scissors");
+let text = document.querySelector("h1");
+
+if (playerPoints < 3 && computerPoints < 3)
 {
-    let playerPoints = 0;
-    let computerPoints = 0;
-    while (playerPoints < 3 && computerPoints < 3)
-    {
-        
-        let message = 'e';
-
-        while (message[0] === 'e')
-        {
-            let playerSelection = prompt("Pick rock, paper or scissors: ");
-            message = playRound(playerSelection);
-        }
-
-        console.log(message);
-
-        if (message.includes("win"))
-        {
-            playerPoints++;    
-        }
-        else if (message.includes("lose"))
-        {
-            computerPoints++;
-        }
-    }
-    
-    if (playerPoints < 3)
-    {
-        console.log("You lost better luck next time!");
-    }
-    else 
-    {
-        console.log("You won well done!");
-    }
-}
-
-playing = true;
-
-while (playing)
-{
-    Game();
-
-    again = "";
-
-    while (again != 'y' || again != 'n')
-    {
-        again = prompt("Play again? (y/n): ");
-        again = again.toLowerCase();
-        if (again === 'y') 
-        {
-            break;
-        }
-        else if (again === 'n')
-        {
-            playing = false;
-            break;
-        }
-    } 
+    rock.addEventListener('click', playRound("rock"));
+    paper.addEventListener('click', playRound("paper"));
+    scissors.addEventListener('click', playRound("scissors"));
 }
