@@ -1,0 +1,45 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #444444;
+}
+
+.play-area {
+    position:absolute;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    transition:all 0.1s;
+}
+
+.RPS-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.RPS-container div {
+    border: 10px solid #111111;
+    border-radius: 10px;
+}
+
+.RPS-container div:hover {
+    transform:scale(1.2);
+    border-color: darkgreen;
+    cursor: pointer;
+}
+
+h1 {
+    padding: 20px;
+    border: 5px solid #111111;
+    border-radius: 20px;
+}
