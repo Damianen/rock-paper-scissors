@@ -29,32 +29,45 @@ function playRound(playerSelection)
     {
         switch (computerSelection % 3)
         {
-            case 1: text.textContent = computerWin("paper", playerSelection);
-            case 2: text.textContent = draw(playerSelection);
-            case 0: text.textContent = playerWin(playerSelection, "scissors");
+            case 1: text.textContent = computerWin("paper", playerSelection); break;
+            case 2: text.textContent = draw(playerSelection); break;
+            case 0: text.textContent = playerWin(playerSelection, "scissors"); break;
         }
     }
     else if (playerSelection === "paper")
     {
         switch (computerSelection % 3)
         {
-            case 0: text.textContent = computerWin("scissors", playerSelection);
-            case 1: text.textContent = draw(playerSelection);
-            case 2: text.textContent = playerWin(playerSelection, "rock");
+            case 0: text.textContent = computerWin("scissors", playerSelection); break;
+            case 1: text.textContent = draw(playerSelection); break;
+            case 2: text.textContent = playerWin(playerSelection, "rock"); break;
         }
     }
     else if (playerSelection === "scissors")
     {
         switch (computerSelection % 3)
         {
-            case 2: text.textContent = computerWin("rock", playerSelection);
-            case 0: text.textContent = draw(playerSelection);
-            case 1: text.textContent = playerWin(playerSelection, "paper");
+            case 2: text.textContent = computerWin("rock", playerSelection); break;
+            case 0: text.textContent = draw(playerSelection); break;
+            case 1: text.textContent = playerWin(playerSelection, "paper"); break;
         }
     }
-    else
+
+    pointsText.textContent = `Player: ${playerPoints}, Computer: ${computerPoints}`;
+
+    if (playerPoints > 2 || computerPoints > 2)
     {
-        return "error, The input was incorrect!"
+        if (playerPoints > 2)
+        {
+            text.textContent = "You Won! Click any option to play again!";
+        }
+        else
+        {
+            text.textContent = "You Lost! Click any option to play again!";
+        }
+
+        playerPoints = 0;
+        computerPoints = 0;
     }
 }
 
@@ -65,10 +78,9 @@ let rock = document.querySelector(".rock");
 let paper = document.querySelector(".paper");
 let scissors = document.querySelector(".scissors");
 let text = document.querySelector("h1");
+let pointsText = document.querySelector("p");
 
-if (playerPoints < 3 && computerPoints < 3)
-{
-    rock.addEventListener('click', playRound("rock"));
-    paper.addEventListener('click', playRound("paper"));
-    scissors.addEventListener('click', playRound("scissors"));
-}
+rock.addEventListener('click', (e) => playRound("rock"));
+paper.addEventListener('click', (e) => playRound("paper"));
+scissors.addEventListener('click', (e) => playRound("scissors"));
+
