@@ -43,3 +43,7 @@ h1 {
     border: 5px solid #111111;
     border-radius: 20px;
 }
+
+p {
+    font-size: 40px;
+}
